@@ -587,7 +587,6 @@ li {
 }
 
 /* Modal */
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -602,23 +601,27 @@ li {
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Modal */
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  width: 528px;
+  padding: 40px;
+  max-width: 528px;
+  min-height: 581px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   background-color: var(--background-color-white);
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(1.1);
-}
+
 .modal__close-wrapper {
   position: absolute;
   top: 8px;
@@ -639,7 +642,6 @@ li {
 }
 
 .modal__form {
-  padding: 40px;
   text-align: center;
 }
 .modal__form-title {
@@ -717,6 +719,18 @@ li {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
+.modal__form-checked {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border-radius: 4px;
+  border: 1px solid var(--main-color);
+}
+
 .modal__form-checkbox:checked + .modal__form-checked {
   background-color: var(--second-color);
   background-image: url(../images/checked.svg);
@@ -740,16 +754,4 @@ li {
 .modal__form .btn:hover,
 .modal__form .btn:focus {
   background-color: var(--button-hover-bg-color);
-}
-.modal__form-checked {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: inline-block;
-  margin-right: 8px;
-
-  width: 16px;
-  height: 15px;
-  border-radius: 4px;
-  border: 1px solid var(--main-color);
 }
